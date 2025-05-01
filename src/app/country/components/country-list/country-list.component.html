@@ -1,15 +1,35 @@
 <section class="mt-5">
-    <table class="table table-md mt-2 w-full">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Icono</th>
-          <th>Bandera</th>
-          <th>Nombre</th>
-          <th>Capital</th>
-          <th>Población</th>
-        </tr>
-      </thead>
-    </table>
-  </section>
+  <table class="table table-md mt-2 w-full">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Icono</th>
+        <th>Bandera</th>
+        <th>Nombre</th>
+        <th>Capital</th>
+        <th>Población</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (country of countries(); track country.cca2; let index = $index) {
+        
+      <tr>
+        <th>{{ index + 1 }}</th>
+        <th>{{ country.flag }}</th>
+        <th>
+          <img [src]="country.flagSvg" alt="country flag" class="w-10" />
+        </th>
+        <th>{{ country.name }}</th>
+        <th>{{ country.population | number }}</th>
+        <th><span class="badge badge-secondary">{{ country.capital }}</span></th>
+
+        <td><a class="link-primary cursor-pointer">More info...</a></td>
+      </tr>
+   
+
+      } </tbody>
+
+  </table>
   
+</section>
+
