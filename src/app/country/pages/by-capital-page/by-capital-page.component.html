@@ -1,2 +1,9 @@
-<search-input (value)="onSearch($event)" placeholder="Search by capital"/>
-<app-country-list [countries]="countries()"/>
+<search-input (value)="query.set($event)" placeholder="Search by capital" />
+
+<app-country-list
+  [errorMessage]="countryResource.error()"
+  [isLoading]="countryResource.isLoading()"
+  [countries]="countryResource.value() ?? []"
+  [isEmpty]="countryResource.value()?.length === 0"
+/>
+
